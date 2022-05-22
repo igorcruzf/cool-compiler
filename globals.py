@@ -1,7 +1,8 @@
-import globals
-
 
 # Using enum class create enumerations
+import enum
+
+
 class TokenType(enum.Enum):
     # reserved words
     CLASS = 0,
@@ -19,36 +20,40 @@ class TokenType(enum.Enum):
     OF = 12,
     ESAC = 13,
     NEW = 14,
-    ISVOID = 15,
-    NOT = 16,
-    TRUE = 17,
-    FALSE = 18,
+    TRUE = 15,
+    FALSE = 16,
 
     # multicharacter tokens
-    ID = 19,
-    TYPE = 20,
-    INTEGER = 21,
-    STRING = 22,
-    SPECIAL_ID = 23,
-    ID = 24,
-    NUM = 25,
+    ID = 17,
+    TYPE = 18,
+    INTEGER = 19,
+    STRING = 20,
+    SELF = 21,
+    SELF_TYPE = 22,
 
     # special symbols
-    LPAREN = 26,
-    RPAREN = 27,
-    SEMI = 28
+    LEFT_PARENTHESIS = 24,
+    RIGHT_PARENTHESIS = 25,
+    SEMI_COLON = 26,
+    LEFT_CURLY_BRACE = 39,
+    RIGHT_CURLY_BRACE = 40,
+    COLON = 41,
+    DOT = 42
 
     # Binary op  +|-|*|/|<-|<|<=|=
-    PLUS = 29,
-    MINUS = 30,
-    TIMES = 31,
-    OVER = 32,
-    ASSIGN = 33,
-    LESSTHAN = 34,
-    LESSEQUAL = 35,
-    EQUAL = 36
+    PLUS = 27,
+    MINUS = 28,
+    TIMES = 29,
+    OVER = 30,
+    ASSIGN = 31,
+    LESS_THAN = 32,
+    LESS_EQUAL = 33,
+    EQUAL = 34
 
     # Unary op ~|isvoid|not
-    TILDE = 37,
-    NOT = 38,
-    ISVOID = 39
+    TILDE = 35,
+    NOT = 36,
+    ISVOID = 37,
+
+    # COMMENT
+    COMMENT = 38
