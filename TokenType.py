@@ -38,7 +38,8 @@ class TokenType(enum.Enum):
     LEFT_CURLY_BRACE = 39,
     RIGHT_CURLY_BRACE = 40,
     COLON = 41,
-    DOT = 42
+    DOT = 42,
+    COMMA = 43
 
     # Binary op  +|-|*|/|<-|<|<=|=
     PLUS = 27,

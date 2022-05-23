@@ -1,66 +1,6 @@
-from globals import TokenType
-
-reserved_words = {
-    "class": TokenType.CLASS,
-    "inherits": TokenType.INHERITS,
-    "if": TokenType.IF,
-    "then": TokenType.THEN,
-    "else": TokenType.ELSE,
-    "fi": TokenType.FI,
-    "while": TokenType.WHILE,
-    "loop": TokenType.LOOP,
-    "pool": TokenType.POOL,
-    "let": TokenType.LET,
-    "in": TokenType.IN,
-    "case": TokenType.CASE,
-    "of": TokenType.OF,
-    "esac": TokenType.ESAC,
-    "new": TokenType.NEW,
-    "isvoid": TokenType.ISVOID,
-    "not": TokenType.NOT
-}
-
-boolean_words = {
-    "true": TokenType.TRUE,
-    "false": TokenType.FALSE
-}
-
-case_sensitive_words = {
-    "self": TokenType.SELF,
-    "SELF_TYPE": TokenType.SELF_TYPE
-}
-
-special_symbols = {
-    ")": TokenType.RIGHT_PARENTHESIS,
-    ";": TokenType.SEMI_COLON,
-    "+": TokenType.PLUS,
-    "*": TokenType.TIMES,
-    "/": TokenType.OVER,
-    "=": TokenType.EQUAL,
-    "~": TokenType.TILDE,
-    "{": TokenType.LEFT_CURLY_BRACE,
-    "}": TokenType.RIGHT_CURLY_BRACE,
-    ":": TokenType.COLON,
-    ".": TokenType.DOT
-}
-
-less_operators = {
-    "<-": TokenType.ASSIGN,
-    "<=": TokenType.LESS_EQUAL
-}
-
-BUFLEN = 256
-
-bufsize = 0  # current size of buffer string
-EOF_flag = False  # corrects ungetNextChar behavior on EOF
-
-EOF = "EOF"
-
-
-class Token:
-    def __init__(self, value, token_type=None):
-        self.value = value
-        self.type = token_type
+from Token import Token
+from TokenType import TokenType
+from vars import EOF, reserved_words, case_sensitive_words, boolean_words, special_symbols, less_operators
 
 
 class Scanner:
@@ -107,7 +47,7 @@ class Scanner:
 
     def in_id_or_type(self, id_type_token):
         c = self.peek_next_char()
-        while c.isalnum():
+        while c.isalnum() or c == "_":
             id_type_token.value += c
             self.move_to_next_char()
             c = self.peek_next_char()
@@ -140,7 +80,7 @@ class Scanner:
 
     def in_single_line_comment(self, comment_token):
         c = self.get_next_char()
-        while c != '\n' or c != EOF:
+        while c != '\n' and c != EOF:
             comment_token.value += c
             c = self.get_next_char()
 
@@ -185,10 +125,10 @@ class Scanner:
 
     @staticmethod
     def has_to_ignore(c):
-        return c == '\n' or c == ' ' or c == '\t'
+        return c == '\n' or c == ' ' or c == '\t' or c == EOF
 
     def get_all_tokens(self):
-        while self.line_buff is not None:
+        while self.line_buff:
             token = self.get_token()
             if token is not None:
                 print(f"""value = {token.value}, type = {token.type}""")
@@ -223,7 +163,7 @@ class Scanner:
         else:
             self.is_special_symbol(token)
             if token.type is None:
-                raise Exception("ISSO NÃO PODE ACONTECER")
+                raise Exception(f"""ISSO NÃO PODE ACONTECER, token={token.value}""")
 
         return token
 
