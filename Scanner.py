@@ -128,10 +128,14 @@ class Scanner:
         return c == '\n' or c == ' ' or c == '\t' or c == EOF
 
     def get_all_tokens(self):
+        all_tokens = []
         while self.line_buff:
             token = self.get_token()
             if token is not None:
                 print(f"""value = {token.value}, type = {token.type}""")
+                all_tokens.append(token)
+        
+        return all_tokens
 
     def get_token(self):
         c = self.get_next_char()
@@ -166,33 +170,3 @@ class Scanner:
                 raise Exception(f"""ISSO NÃO PODE ACONTECER, token={token.value}""")
 
         return token
-
-    # def main(self):
-    #     file = open("caminho", r)
-    #     line = get_next_line(file)
-    #     token = get_token(line)
-
-# def get_next_char():
-#     line =
-#     if ()
-#
-#
-# static
-# int
-# getNextChar(void)
-# { if (!(linepos < bufsize))
-# {lineno + +;
-# if (fgets(lineBuf, BUFLEN - 1, source))
-# { if (EchoSource)
-# fprintf(listing, "%4d: %s", lineno, lineBuf);
-# bufsize = strlen(lineBuf);
-# linepos = 0;
-# return lineBuf[linepos + +];
-# }
-# else
-# {EOF_flag = TRUE;
-# return EOF;
-# }
-# }
-# else return lineBuf[linepos + +];
-# }

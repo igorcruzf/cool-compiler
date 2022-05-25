@@ -121,15 +121,15 @@ class A2I {
 
 
 (*
-	this is factorial programming using while loop
+	this is fibonacci programming using while loop
 *)
 class Main inherits A2I{
 
 	main():Object{
-		(new IO).out_string(i2a(fact(a2i((new IO).in_string()))).concat("\n"))
+		(new IO).out_string(i2a(fib(a2i((new IO).in_string()))).concat("\n"))
 	};
 	
-	fact(i: Int):Int{
+	fib(i: Int):Int{
 
 		(let next: Int <- 0 in{
 			(let f1:Int <- 0 in
