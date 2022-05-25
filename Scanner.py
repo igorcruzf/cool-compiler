@@ -35,8 +35,8 @@ class Scanner:
         return self.line_buff[self.line_index - 1]
 
     def peek_next_char(self):
-        if not self.line_buff:
-            raise Exception("M=peek_next_char, tentando olhar próximo caracter após EOF.")
+        if not self.line_buff or self.line_index == len(self.line_buff):
+            raise Exception("M=peek_next_char, tentando olhar próximo caracter após fim da linha ou EOF.")
         return self.line_buff[self.line_index]
 
     def in_integer(self, integer_token):
