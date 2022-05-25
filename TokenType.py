@@ -50,6 +50,7 @@ class TokenType(enum.Enum):
     LESS_THAN = 32,
     LESS_EQUAL = 33,
     EQUAL = 34
+    BRANCH = 44
 
     # Unary op ~|isvoid|not
     TILDE = 35,

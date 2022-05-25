@@ -1,6 +1,7 @@
 from Token import Token
 from TokenType import TokenType
-from vars import EOF, reserved_words, case_sensitive_words, boolean_words, special_symbols, less_operators
+from vars import EOF, reserved_words, case_sensitive_words, boolean_words, special_symbols, less_operators, \
+    equal_operators
 
 
 class Scanner:
@@ -123,6 +124,13 @@ class Scanner:
             token.value += next_char
             self.move_to_next_char()
 
+    def in_equal(self, token):
+        next_char = self.peek_next_char()
+        token.type = equal_operators.get("=" + next_char, TokenType.EQUAL)
+        if token.type != TokenType.EQUAL:
+            token.value += next_char
+            self.move_to_next_char()
+
     @staticmethod
     def has_to_ignore(c):
         return c == '\n' or c == ' ' or c == '\t' or c == EOF
@@ -164,6 +172,8 @@ class Scanner:
             self.in_minus(token)
         elif c == "<":
             self.in_less_operators(token)
+        elif c == "=":
+            self.in_equal(token)
         else:
             self.is_special_symbol(token)
             if token.type is None:

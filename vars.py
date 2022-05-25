@@ -38,7 +38,6 @@ special_symbols = {
     "+": TokenType.PLUS,
     "*": TokenType.TIMES,
     "/": TokenType.OVER,
-    "=": TokenType.EQUAL,
     "~": TokenType.TILDE,
     "{": TokenType.LEFT_CURLY_BRACE,
     "}": TokenType.RIGHT_CURLY_BRACE,
@@ -50,4 +49,9 @@ special_symbols = {
 less_operators = {
     "<-": TokenType.ASSIGN,
     "<=": TokenType.LESS_EQUAL
+}
+
+equal_operators = {
+    "=": TokenType.EQUAL,
+    "=>": TokenType.BRANCH
 }
