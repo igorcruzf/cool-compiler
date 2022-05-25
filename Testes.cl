@@ -168,5 +168,5 @@ class Test {
 		esac
    };
 
-}
+};
 

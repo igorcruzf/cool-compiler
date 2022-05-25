@@ -1,5 +1,5 @@
-código do fibonacci retirado no link: https://github.com/meskatjahan/Fibonacci-Code-using-cool-language/blob/master/fibonacci.cl
-
+Código do fibonacci retirado no link: https://github.com/meskatjahan/Fibonacci-Code-using-cool-language/blob/master/fibonacci.cl
+Outros exemplos de código foram retirados de: http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=Compilers&doc=docs/pa.html
 
 para executar o analisador léxico basta executar o comando na raiz do projeto:
 - python3 main.py
