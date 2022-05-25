@@ -159,13 +159,6 @@ class Main inherits A2I{
 
 class Test {
 
-	foo(): Bool{
-
-		let e <- 
-		case e of x : C =>
-
-	}
-
 	class_type(var : Bool) : SELF_TYPE {
 		case var of
 			x : Int => out_string("Class type is now Int\n");
