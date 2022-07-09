@@ -9,6 +9,7 @@ class Scanner:
     def __init__(self, filename):
         self.file = open(filename, 'r')
         self.line_buff = self.file.readline()
+        self.line_count = 0
         self.line_index = 0
 
     def move_to_next_char(self):
@@ -17,6 +18,7 @@ class Scanner:
 
         if self.line_index == len(self.line_buff):
             self.line_buff = self.file.readline()
+            self.line_count += 1
             if not self.line_buff:
                 return EOF
             self.line_index = 0
@@ -28,6 +30,7 @@ class Scanner:
 
         if self.line_index == len(self.line_buff):
             self.line_buff = self.file.readline()
+            self.line_count += 1
             if not self.line_buff:
                 return EOF
             self.line_index = 0
@@ -140,7 +143,7 @@ class Scanner:
         while self.line_buff:
             token = self.get_token()
             if token is not None:
-                print(f"""value = {token.value}, type = {token.type}""")
+                # print(f"""value = {token.value}, type = {token.type}""")
                 all_tokens.append(token)
         
         return all_tokens
@@ -150,7 +153,7 @@ class Scanner:
         if self.has_to_ignore(c):
             return None
 
-        token = Token(c)
+        token = Token(c, self.line_count, self.line_index)
         if c.isnumeric():
             token.type = TokenType.INTEGER
             self.in_integer(token)
