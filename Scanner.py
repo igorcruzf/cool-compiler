@@ -143,7 +143,6 @@ class Scanner:
         while self.line_buff:
             token = self.get_token()
             if token is not None:
-                # print(f"""value = {token.value}, type = {token.type}""")
                 all_tokens.append(token)
         
         return all_tokens

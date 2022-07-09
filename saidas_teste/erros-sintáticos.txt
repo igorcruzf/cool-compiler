@@ -1,0 +1,56 @@
+[Cuidado] ID abort na linha 30, posição 4 usado antes de ser declarado.
+[Cuidado] ID abort na linha 51, posição 4 usado antes de ser declarado.
+[Cuidado] ID length na linha 66, posição 14 usado antes de ser declarado.
+[Cuidado] ID substr na linha 67, posição 8 usado antes de ser declarado.
+[Cuidado] ID substr na linha 67, posição 42 usado antes de ser declarado.
+[Cuidado] ID length na linha 67, posição 53 usado antes de ser declarado.
+[Cuidado] ID substr na linha 68, posição 14 usado antes de ser declarado.
+[Cuidado] ID substr na linha 68, posição 47 usado antes de ser declarado.
+[Cuidado] ID length na linha 68, posição 58 usado antes de ser declarado.
+[Cuidado] ID length na linha 81, posição 23 usado antes de ser declarado.
+[Cuidado] ID substr na linha 85, posição 32 usado antes de ser declarado.
+[Cuidado] ID concat na linha 103, posição 15 usado antes de ser declarado.
+[Cuidado] ID concat na linha 113, posição 17 usado antes de ser declarado.
+[Cuidado] ID out_string na linha 129, posição 12 usado antes de ser declarado.
+[Cuidado] ID in_string na linha 129, posição 44 usado antes de ser declarado.
+[Cuidado] ID concat na linha 129, posição 59 usado antes de ser declarado.
+[Cuidado] ID out_string na linha 164, posição 15 usado antes de ser declarado.
+[Cuidado] ID out_string na linha 165, posição 19 usado antes de ser declarado.
+[Cuidado] ID out_string na linha 166, posição 17 usado antes de ser declarado.
+[Cuidado] ID out_string na linha 167, posição 19 usado antes de ser declarado.
+
+Mudanças (acumulativas) no código para mudanças nos erros:
+
+Mudando a linha 17 para: ;class A2I {
+[Erro] Token inválido ; na linha 17, posição 1, esperado ['CLASS']
+
+Mudando a linha 9 para: c2i(char ) : Int {
+[Erro] Token inválido ; na linha 17, posição 1, esperado ['CLASS']
+[Erro] Token inválido ) na linha 19, posição 11, esperado ['COLON']
+
+Mudando a linha 24 para: if char == "4" then 4 else
+[Erro] Token inválido ; na linha 17, posição 1, esperado ['CLASS']
+[Erro] Token inválido ) na linha 19, posição 11, esperado ['COLON']
+[Erro] Token inválido = na linha 24, posição 12, esperado ['ID', 'CASE', 'IF', 'WHILE', 'LEFT_CURLY_BRACE', 'LET', 'NEW', 'ISVOID', 'TILDE', 'NOT', 'LEFT_PARENTHESIS', 'SELF', 'INTEGER', 'STRING', 'TRUE', 'FALSE']
+
+Mudando a linha 30 para: abort(1;
+[Erro] Token inválido ; na linha 17, posição 1, esperado ['CLASS']
+[Erro] Token inválido ) na linha 19, posição 11, esperado ['COLON']
+[Erro] Token inválido = na linha 24, posição 12, esperado ['ID', 'CASE', 'IF', 'WHILE', 'LEFT_CURLY_BRACE', 'LET', 'NEW', 'ISVOID', 'TILDE', 'NOT', 'LEFT_PARENTHESIS', 'SELF', 'INTEGER', 'STRING', 'TRUE', 'FALSE']
+[Erro] Token inválido ; na linha 30, posição 11, esperado 'RIGHT_PARENTHESIS'
+
+Mudando a linha 40 para: i2c(i : Int) : String a
+
+[Erro] Token inválido ; na linha 30, posição 11, esperado 'RIGHT_PARENTHESIS'
+[Erro] Token inválido a na linha 40, posição 24, esperado 'LEFT_CURLY_BRACE'
+[Erro] Token inválido if na linha 41, posição 3, esperado 'RIGHT_CURLY_BRACE'
+[Erro] Token inválido if na linha 41, posição 3, esperado 'SEMI_COLON'
+[Erro] Token inválido if na linha 41, posição 3, esperado ['RIGHT_CURLY_BRACE']
+[Erro] Token inválido = na linha 41, posição 8, esperado ['LEFT_PARENTHESIS']
+[Erro] Token inválido ; na linha 51, posição 11, esperado 'COLON'
+[Erro] Token inválido ; na linha 51, posição 11, esperado 'TYPE'
+[Erro] Token inválido ; na linha 51, posição 11, esperado 'LEFT_CURLY_BRACE'
+[Erro] Token inválido ; na linha 51, posição 11, esperado ['ID', 'CASE', 'IF', 'WHILE', 'LEFT_CURLY_BRACE', 'LET', 'NEW', 'ISVOID', 'TILDE', 'NOT', 'LEFT_PARENTHESIS', 'SELF', 'INTEGER', 'STRING', 'TRUE', 'FALSE']
+[Erro] Token inválido ; na linha 52, posição 6, esperado 'RIGHT_CURLY_BRACE'
+[Erro] Token inválido fi na linha 54, posição 3, esperado 'SEMI_COLON'
+[Erro] Token inválido fi na linha 54, posição 3, esperado ['CLASS']

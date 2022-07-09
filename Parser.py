@@ -26,9 +26,9 @@ class Parser:
             self.get_next_token()
             return token
         else:
-            self.errors.append(f"Erro no token {self.actual_token.value} na linha {self.actual_token.line}"
+            self.errors.append(f"[Erro] Token inválido {self.actual_token.value} na linha {self.actual_token.line}"
                                f", posição {self.actual_token.position}"
-                               f", token esperado {token_type.name}")
+                               f", esperado '{token_type.name}'")
 
     def match_and_append(self, token_type, node):
         token = self.match(token_type)
@@ -41,8 +41,8 @@ class Parser:
 
     def check_input(self, expected_tokens, sync_tokens):
         if self.actual_token.type not in expected_tokens:
-            self.errors.append(f"Erro no token {self.actual_token.value} na linha {self.actual_token.line}"
-                               f", posição {self.actual_token.position}, esperado {expected_tokens}")
+            self.errors.append(f"[Erro] Token inválido {self.actual_token.value} na linha {self.actual_token.line}"
+                               f", posição {self.actual_token.position}, esperado {[token.name for token in expected_tokens]}")
             self.scan_to(expected_tokens + sync_tokens)
 
     def final_match_and_append(self, token_type, node):
@@ -50,9 +50,9 @@ class Parser:
             token = self.actual_token
             node.children.append(token)
         else:
-            self.errors.append(f"Erro no token {self.actual_token.value} na linha {self.actual_token.line}"
-                            f", posição {self.actual_token.position}"
-                            f", token esperado {token_type.name}")
+            self.errors.append(f"[Erro] Token inválido {self.actual_token.value} na linha {self.actual_token.line}"
+                               f", posição {self.actual_token.position}"
+                               f", token esperado '{token_type.name}'")
 
     def is_declared_id(self):
         return self.actual_token.value in self.declared_ids
@@ -65,7 +65,7 @@ class Parser:
 
     def clazz(self, sync_tokens):
         node = Node(BNFType.CLASS)
-        self.check_input([TokenType.CLASS], sync_tokens)
+        self.check_input([TokenType.CLASS], [])
         if self.actual_token.type not in sync_tokens:
             self.match_and_append(TokenType.CLASS, node)
             self.match_and_append(TokenType.TYPE, node)
