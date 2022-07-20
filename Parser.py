@@ -382,7 +382,11 @@ class Parser:
             node.children.append(expression_line_node)
 
     def parse(self):
-        tree = self.program()
+        tree = None
+        try:
+            tree = self.program()
+        except IndexError:
+            self.errors.append(f"[Erro] Fim do arquivo inesperado.")
         for token in self.used_ids:
             if token.value not in self.declared_ids:
                 self.errors.append(f"[Cuidado] ID {token.value} na linha {token.line}"
